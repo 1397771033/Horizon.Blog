@@ -6,6 +6,7 @@ namespace Horizon.Blog.Domain.Core
 {
     public interface IUnitOfWork : IDisposable
     {
-        Task<int> TransactionCommitAsync(CancellationToken cancellationToken = default);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }
