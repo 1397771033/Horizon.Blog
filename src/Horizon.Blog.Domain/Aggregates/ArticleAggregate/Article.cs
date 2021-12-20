@@ -1,5 +1,6 @@
 using Horizon.Blog.Domain.Common;
 using Horizon.Blog.Domain.Core;
+using Horizon.Blog.Service.Enums;
 using System;
 
 namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
@@ -22,12 +23,38 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
         /// 排序值
         /// </summary>
         public int SortNum { get;private set; }
-        public Article(string title,string content,string creatorId,int sortNum=1)
+        /// <summary>
+        /// 置顶状态 true置顶 false未置顶
+        /// </summary>
+        public bool Toped { get;private set; }
+        /// <summary>
+        /// 文章状态
+        /// </summary>
+        public ArticleStatusEnum Status { get;private set; }
+        /// <summary>
+        /// 修改人信息
+        /// </summary>
+        public AdminModificationInfo ModificationInfo { get;private set; }
+        private Article()
         {
+
+        }
+        public Article(string title,string content,string creatorId,int sortNum=1):this()
+        {
+            GenerateId();
             SetTitle(title);
             SetContent(content);
             SetCreationInfo(creatorId);
             SetSortNum(sortNum);
+            SetToped(false);
+            SetStatus(ArticleStatusEnum.Unpublished);
+            SetModificationInfo(creatorId);
+        }
+        public void ModifyArticle(string title,string content,string modifierId)
+        {
+            SetTitle(title);
+            SetContent(content);
+            SetModificationInfo(modifierId);
         }
         #region Basic
         private void SetTitle(string title)
@@ -52,6 +79,63 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
         {
             SortNum = sortNum <= 0 ? 1 : sortNum;
         }
+        private void SetModificationInfo(string modifierId)
+        {
+            if (string.IsNullOrWhiteSpace(modifierId))
+                throw new ArgumentNullException(nameof(modifierId));
+            ModificationInfo = new AdminModificationInfo(modifierId,DateTime.Now);
+        }
         #endregion
+        public void ModifySortNum(int sortNum, string modifierId)
+        {
+            this.SetSortNum(sortNum);
+            this.SetModificationInfo(modifierId);
+        }
+        public void ModifyContent(string content, string modifierId)
+        {
+            this.SetContent(content);
+            this.SetModificationInfo(modifierId);
+        }
+        public void ModifyTitle(string title, string modifierId)
+        {
+            this.SetTitle(title);
+            this.SetModificationInfo(modifierId);
+        }
+        private void SetStatus(ArticleStatusEnum status)
+        {
+            Status = status;
+        }
+        /// <summary>
+        /// 文章取消发布
+        /// </summary>
+        public void Unpublished()
+        {
+            SetStatus(ArticleStatusEnum.Unpublished);
+        }
+        /// <summary>
+        /// 文章发布
+        /// </summary>
+        public void Published()
+        {
+            SetStatus(ArticleStatusEnum.Published);
+        }
+        private void SetToped(bool toped)
+        {
+            Toped = toped;
+        }
+        /// <summary>
+        /// 文章置顶
+        /// </summary>
+        public void PutOnTop()
+        {
+            SetToped(true);
+        }
+        /// <summary>
+        /// 取消置顶
+        /// </summary>
+        public void CancelTheTop()
+        {
+            SetToped(false);
+        }
     }
 }

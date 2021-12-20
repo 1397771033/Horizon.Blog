@@ -9,11 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horizon.Blog.Domain", "Hori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horizon.Blog.Infrastructure", "Horizon.Blog.Infrastructure\Horizon.Blog.Infrastructure.csproj", "{9838C894-A8C8-49B9-BD65-2D4193F3FAE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horzion.Blog.Api", "Horzion.Blog.Api\Horzion.Blog.Api.csproj", "{84967C77-3715-4D14-8BCD-F4012D9FC79E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horzion.Blog.Api", "Horzion.Blog.Api\Horzion.Blog.Api.csproj", "{84967C77-3715-4D14-8BCD-F4012D9FC79E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8267015D-6FE2-4212-9362-EF0CFD06984C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Blog.Service", "Horizon.Blog.Service\Horizon.Blog.Service.csproj", "{115E5DFE-28CF-4FDA-9590-10492E0B523B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horizon.Blog.Service", "Horizon.Blog.Service\Horizon.Blog.Service.csproj", "{115E5DFE-28CF-4FDA-9590-10492E0B523B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B9591CEE-D9F6-4739-9760-8864CA7D5F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Domain.Test", "Blog.Domain.Test\Blog.Domain.Test.csproj", "{07D8DD12-F52D-4110-82D9-99C1B30E9786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,18 @@ Global
 		{115E5DFE-28CF-4FDA-9590-10492E0B523B}.Release|x64.Build.0 = Release|Any CPU
 		{115E5DFE-28CF-4FDA-9590-10492E0B523B}.Release|x86.ActiveCfg = Release|Any CPU
 		{115E5DFE-28CF-4FDA-9590-10492E0B523B}.Release|x86.Build.0 = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|x64.Build.0 = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Debug|x86.Build.0 = Debug|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|x64.ActiveCfg = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|x64.Build.0 = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|x86.ActiveCfg = Release|Any CPU
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +98,7 @@ Global
 		{9838C894-A8C8-49B9-BD65-2D4193F3FAE6} = {61F29449-CB9E-42D1-85F9-2FB91D7ED0A3}
 		{84967C77-3715-4D14-8BCD-F4012D9FC79E} = {61F29449-CB9E-42D1-85F9-2FB91D7ED0A3}
 		{115E5DFE-28CF-4FDA-9590-10492E0B523B} = {8267015D-6FE2-4212-9362-EF0CFD06984C}
+		{07D8DD12-F52D-4110-82D9-99C1B30E9786} = {B9591CEE-D9F6-4739-9760-8864CA7D5F24}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0361E48-8E2E-4424-A2C2-18F3FD4B9A21}

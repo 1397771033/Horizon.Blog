@@ -13,7 +13,36 @@ namespace Horizon.Blog.Domain.Aggregates.ReviewAggregate
         public string Content { get;private set; }
         public UserCreationInfo CreationInfo { get;private set; }
         public string ArticleId { get;private set; }
-        public string UserId { get; set; }
+        private Review()
+        {
 
+        }
+        public Review(string content,string articleId,string creatorId):this()
+        {
+            GenerateId();
+            SetContent(content);
+            BindArticleId(articleId);
+            SetCreationInfo(creatorId);
+        }
+        private void SetContent(string content)
+        {
+            if (string.IsNullOrWhiteSpace(content))
+                throw new ArgumentNullException(nameof(content));
+            Content = content;
+        }
+        public void ModifyContent(string content)
+        {
+            this.SetContent(content);
+        }
+        public void BindArticleId(string articleId)
+        {
+            if (string.IsNullOrWhiteSpace(articleId))
+                throw new ArgumentNullException(nameof(articleId));
+            ArticleId = articleId;
+        }
+        private void SetCreationInfo(string creatorId)
+        {
+            CreationInfo = new UserCreationInfo(creatorId,DateTime.Now);
+        }
     }
 }
