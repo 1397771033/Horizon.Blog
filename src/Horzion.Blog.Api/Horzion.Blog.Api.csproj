@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Horizon.Blog.Domain\Horizon.Blog.Domain.csproj" />
     <ProjectReference Include="..\Horizon.Blog.Infrastructure\Horizon.Blog.Infrastructure.csproj" />
     <ProjectReference Include="..\Horizon.Blog.Service\Horizon.Blog.Service.csproj" />

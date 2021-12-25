@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horizon.Blog.Service", "Hor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B9591CEE-D9F6-4739-9760-8864CA7D5F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Domain.Test", "Blog.Domain.Test\Blog.Domain.Test.csproj", "{07D8DD12-F52D-4110-82D9-99C1B30E9786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Domain.Test", "Blog.Domain.Test\Blog.Domain.Test.csproj", "{07D8DD12-F52D-4110-82D9-99C1B30E9786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

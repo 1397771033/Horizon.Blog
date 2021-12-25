@@ -1,3 +1,8 @@
+using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
+using Horizon.Blog.Domain.Service;
+using Horizon.Blog.Infrastructure.Repositories;
+using Horzion.Blog.Api.Application.CommandHandlers.ArticleHandlers;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Horizon.Blog.Api.Extensions.ConfigureServices
@@ -14,7 +19,7 @@ namespace Horizon.Blog.Api.Extensions.ConfigureServices
         /// </summary>
         public void ConfigureCommandHandler()
         {
-
+            services.AddScoped<IRequestHandler<AddArticleCommand, bool>, AddArticleCommandHandler>();
         }
         /// <summary>
         /// 配置领域事件
@@ -28,14 +33,14 @@ namespace Horizon.Blog.Api.Extensions.ConfigureServices
         /// </summary>
         public void ConfigureDomainService()
         {
-
+            services.AddScoped<ArticleService>();
         }
         /// <summary>
         /// 配置仓储
         /// </summary>
         public void ConfigureRepository()
         {
-
+            services.AddScoped<IArticleRepository, ArticleRepository>();
         }
         /// <summary>
         /// 配置查询
