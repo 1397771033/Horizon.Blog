@@ -22,7 +22,7 @@ namespace Horizon.Blog.Domain.Aggregates.StarAggregate
             BindArticleId(articleId);
             SetCreationInfo(creatorId);
         }
-        public void BindArticleId(string articleId)
+        private void BindArticleId(string articleId)
         {
             if (string.IsNullOrWhiteSpace(articleId))
                 throw new ArgumentNullException(nameof(articleId));
