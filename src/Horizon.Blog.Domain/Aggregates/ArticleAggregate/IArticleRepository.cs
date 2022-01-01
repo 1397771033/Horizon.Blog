@@ -3,7 +3,7 @@ using Horizon.Blog.Domain.Core;
 
 namespace Horizon.Blog.Domain.Aggregates.ArticleAggregate
 {
-    public interface IArticleRepository:IRepository<Article>
+    public interface IArticleRepository : IRepository<Article>
     {
         /// <summary>
         /// 根据排序值获取最顶/最底的文章,true最顶，false最底

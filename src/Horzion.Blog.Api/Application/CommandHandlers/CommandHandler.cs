@@ -1,9 +1,6 @@
 using Horizon.Blog.Domain.Core;
 using Horizon.Blog.Infrastructure.DatabaseContext;
 using Horizon.Blog.Service.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

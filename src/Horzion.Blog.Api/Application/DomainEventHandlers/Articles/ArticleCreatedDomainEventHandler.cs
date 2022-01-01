@@ -1,9 +1,7 @@
 using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Horizon.Blog.Domain.Events.Articles;
+using Horizon.Blog.Domain.Service;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,14 +11,19 @@ namespace Horzion.Blog.Api.Application.DomainEventHandlers.Articles
         : INotificationHandler<ArticleCreatedDomainEvent>
     {
         private readonly IArticleFunctionRepository _articleFunctionRepository;
-        public ArticleCreatedDomainEventHandler(IArticleFunctionRepository articleFunctionRepository)
+        private readonly ArticleFunctionService _articleFunctionService;
+        public ArticleCreatedDomainEventHandler(IArticleFunctionRepository articleFunctionRepository, ArticleFunctionService articleFunctionService)
         {
             _articleFunctionRepository = articleFunctionRepository;
+            _articleFunctionService = articleFunctionService;
         }
         public Task Handle(ArticleCreatedDomainEvent notification, CancellationToken cancellationToken)
         {
-            var articleFunction = new ArticleFunction(notification.ArticleId);
-            _articleFunctionRepository.Add(articleFunction);
+            if (_articleFunctionService.BindArticle(notification.ArticleId))
+            {
+                var articleFunction = new ArticleFunction(notification.ArticleId);
+                _articleFunctionRepository.Add(articleFunction);
+            }
             return Task.CompletedTask;
         }
     }

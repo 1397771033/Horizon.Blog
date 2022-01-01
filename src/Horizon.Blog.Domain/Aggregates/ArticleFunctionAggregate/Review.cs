@@ -1,23 +1,19 @@
 using Horizon.Blog.Domain.Common;
 using Horizon.Blog.Domain.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
 {
-    public class Review:Entity
+    public class Review : Entity
     {
-        public string Content { get;private set; }
-        public UserCreationInfo CreationInfo { get;private set; }
+        public string Content { get; private set; }
+        public UserCreationInfo CreationInfo { get; private set; }
 
         private Review()
         {
 
         }
-        internal Review(string content,string creatorId):this()
+        internal Review(string content, string creatorId) : this()
         {
             GenerateId();
             SetContent(content);
@@ -35,7 +31,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         }
         private void SetCreationInfo(string creatorId)
         {
-            CreationInfo = new UserCreationInfo(creatorId,DateTime.Now);
+            CreationInfo = new UserCreationInfo(creatorId, DateTime.Now);
         }
     }
 }

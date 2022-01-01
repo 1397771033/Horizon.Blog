@@ -1,11 +1,6 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggreate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Infrastructure.EntityConfigurations
 {
@@ -44,7 +39,7 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
                 .HasColumnName("title");
             builder.Property(_ => _.Toped)
                 .HasColumnName("toped");
-                
+
         }
     }
 }

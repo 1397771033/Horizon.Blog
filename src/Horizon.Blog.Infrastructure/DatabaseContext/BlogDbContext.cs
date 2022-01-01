@@ -1,6 +1,5 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggreate;
 using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
-using Horizon.Blog.Domain.Core;
 using Horizon.Blog.Infrastructure.EntityConfigurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Horizon.Blog.Infrastructure.DatabaseContext
 {
-    public class BlogDbContext:DbContext
+    public class BlogDbContext : DbContext
     {
         private readonly IMediator _mediator;
         public BlogDbContext(DbContextOptions<BlogDbContext> options,
@@ -18,7 +17,7 @@ namespace Horizon.Blog.Infrastructure.DatabaseContext
             )
             : base(options)
         {
-            _mediator = mediator??throw new ArgumentNullException(nameof(mediator));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)

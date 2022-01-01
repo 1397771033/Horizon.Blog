@@ -8,11 +8,11 @@ namespace Blog.Domain.Test
     [TestClass]
     public class ArticleTest
     {
-        private Article ArticleInstance {get=> new Article(_articleTitle, _articleContent, _creatorId); } 
+        private Article ArticleInstance { get => new Article(_articleTitle, _articleContent, _creatorId); }
 
-        private readonly string _articleTitle="文章标题";
-        private readonly string _articleContent="文章内容";
-        private readonly string _creatorId="admin";
+        private readonly string _articleTitle = "文章标题";
+        private readonly string _articleContent = "文章内容";
+        private readonly string _creatorId = "admin";
 
 
         [TestMethod("正常参数的构造函数")]
@@ -46,7 +46,7 @@ namespace Blog.Domain.Test
             string articleContent = "新文章标题";
             string modifierId = "zhangsan";
             Thread.Sleep(100);
-            article.ModifyArticle(articleTitle,articleContent,modifierId);
+            article.ModifyArticle(articleTitle, articleContent, modifierId);
 
             Assert.AreEqual(articleTitle, article.Title);
             Assert.AreEqual(articleContent, article.Content);

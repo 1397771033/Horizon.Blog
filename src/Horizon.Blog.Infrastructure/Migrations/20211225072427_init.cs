@@ -1,5 +1,5 @@
-﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace Horizon.Blog.Infrastructure.Migrations
 {

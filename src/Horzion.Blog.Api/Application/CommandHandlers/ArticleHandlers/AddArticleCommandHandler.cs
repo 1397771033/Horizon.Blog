@@ -3,9 +3,6 @@ using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
 using Horizon.Blog.Domain.Service;
 using Horizon.Blog.Infrastructure.DatabaseContext;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 

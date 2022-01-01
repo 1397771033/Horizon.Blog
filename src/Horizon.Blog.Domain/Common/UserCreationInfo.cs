@@ -1,13 +1,10 @@
 using Horizon.Blog.Domain.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Domain.Common
 {
-    public class UserCreationInfo:ValueObject
+    public class UserCreationInfo : ValueObject
     {
         public string CreatorId { get; private set; }
         public DateTime CreationTime { get; private set; }

@@ -18,5 +18,13 @@ namespace Horizon.Blog.Infrastructure.Repositories
                 .Include(_ => _.Stars)
                 .FirstOrDefault(_ => _.Id == id);
         }
+
+        public ArticleFunction GetByArticle(string articleId)
+        {
+            return _context.ArticleFunctions
+                .Include(_ => _.Reviews)
+                .Include(_ => _.Stars)
+                .FirstOrDefault(_ => _.ArticleId == articleId);
+        }
     }
 }

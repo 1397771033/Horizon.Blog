@@ -8,11 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Horzion.Blog.Api.Extensions.ConfigureService
 {
@@ -72,7 +68,7 @@ namespace Horzion.Blog.Api.Extensions.ConfigureService
         public void ConfigureDataAccess()
         {
             //var pgsqlConnection = configuration.GetValue<string>(ApolloConfigKeys.POSTGRE_URL);
-            string connStr= configuration.GetValue<string>("ConnectionStrings:PostgreSql");
+            string connStr = configuration.GetValue<string>("ConnectionStrings:PostgreSql");
             services.AddDbContext<BlogDbContext>(opt =>
             {
                 opt.UseNpgsql(connStr);
@@ -139,7 +135,6 @@ namespace Horzion.Blog.Api.Extensions.ConfigureService
         public void ConfigureMediatR()
         {
             services.AddMediatR(typeof(Startup));
-            //services.AddScoped<IMediator, Mediator>();
         }
     }
 }

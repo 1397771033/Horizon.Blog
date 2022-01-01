@@ -6,41 +6,41 @@ using System;
 
 namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
 {
-    public class Article:Entity,IAggregateRoot
+    public class Article : Entity, IAggregateRoot
     {
         /// <summary>
         /// 文章标题
         /// </summary>
-        public string Title { get;private set; }
+        public string Title { get; private set; }
         /// <summary>
         /// 文章内容
         /// </summary>
-        public string Content { get;private set; }
+        public string Content { get; private set; }
         /// <summary>
         /// 创建人信息
         /// </summary>
-        public AdminCreationInfo CreationInfo { get;private set; }
+        public AdminCreationInfo CreationInfo { get; private set; }
         /// <summary>
         /// 排序值
         /// </summary>
-        public int SortNum { get;private set; }
+        public int SortNum { get; private set; }
         /// <summary>
         /// 置顶状态 true置顶 false未置顶
         /// </summary>
-        public bool Toped { get;private set; }
+        public bool Toped { get; private set; }
         /// <summary>
         /// 文章状态
         /// </summary>
-        public ArticleStatusEnum Status { get;private set; }
+        public ArticleStatusEnum Status { get; private set; }
         /// <summary>
         /// 修改人信息
         /// </summary>
-        public AdminModificationInfo ModificationInfo { get;private set; }
+        public AdminModificationInfo ModificationInfo { get; private set; }
         private Article()
         {
 
         }
-        public Article(string title,string content,string creatorId,int sortNum=1):this()
+        public Article(string title, string content, string creatorId, int sortNum = 1) : this()
         {
             GenerateId();
             SetTitle(title);
@@ -52,7 +52,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
             SetModificationInfo(creatorId);
             AddDomainEvent(new ArticleCreatedDomainEvent(Id));
         }
-        public void ModifyArticle(string title,string content,string modifierId)
+        public void ModifyArticle(string title, string content, string modifierId)
         {
             SetTitle(title);
             SetContent(content);
@@ -73,7 +73,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
         }
         private void SetCreationInfo(string creatorId)
         {
-            if(string.IsNullOrWhiteSpace(creatorId))
+            if (string.IsNullOrWhiteSpace(creatorId))
                 throw new ArgumentNullException(nameof(creatorId));
             CreationInfo = new AdminCreationInfo(creatorId, DateTime.Now);
         }
@@ -85,7 +85,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
         {
             if (string.IsNullOrWhiteSpace(modifierId))
                 throw new ArgumentNullException(nameof(modifierId));
-            ModificationInfo = new AdminModificationInfo(modifierId,DateTime.Now);
+            ModificationInfo = new AdminModificationInfo(modifierId, DateTime.Now);
         }
         #endregion
         public void ModifySortNum(int sortNum, string modifierId)

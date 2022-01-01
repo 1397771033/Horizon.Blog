@@ -1,10 +1,6 @@
 using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.Domain.Test
 {
@@ -13,7 +9,7 @@ namespace Blog.Domain.Test
     {
         private ArticleFunction ArticleFunctionInstance { get => new ArticleFunction(_articleId); }
 
-        private readonly string _articleId="1283947583491";
+        private readonly string _articleId = "1283947583491";
 
         private readonly string _userId_1 = "userid";
         private readonly string _content_1 = "WTNB";

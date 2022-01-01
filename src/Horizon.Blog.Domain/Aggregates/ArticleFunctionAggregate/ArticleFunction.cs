@@ -1,19 +1,19 @@
 using Horizon.Blog.Domain.Core;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
 {
-    public class ArticleFunction:Entity,IAggregateRoot
+    public class ArticleFunction : Entity, IAggregateRoot
     {
         public string ArticleId { get; set; }
-        
+
         private readonly List<Review> _reviews;
         /// <summary>
         /// 评论
         /// </summary>
-        public IReadOnlyCollection<Review> Reviews=>_reviews;
+        public IReadOnlyCollection<Review> Reviews => _reviews;
 
         private readonly List<Star> _stars;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
             _stars = new List<Star>();
         }
         public ArticleFunction(string articleId)
-            :this()
+            : this()
         {
             GenerateId();
             BindArticle(articleId);
@@ -40,14 +40,14 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         }
 
         #region Review
-        public void Review(string content,string creatorId)
+        public void Review(string content, string creatorId)
         {
-            Review review = new Review(content,creatorId);
+            Review review = new Review(content, creatorId);
             _reviews.Add(review);
         }
         public void DeleteReview(string reviewId)
         {
-            Review review = _reviews.FirstOrDefault(_=>_.Id==reviewId);
+            Review review = _reviews.FirstOrDefault(_ => _.Id == reviewId);
             if (review == null) return;
             _reviews.Remove(review);
         }

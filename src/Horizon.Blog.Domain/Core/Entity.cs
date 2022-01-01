@@ -1,5 +1,5 @@
+using Horizon.Blog.Service.Helpers;
 using MediatR;
-using System;
 using System.Collections.Generic;
 
 namespace Horizon.Blog.Domain.Core
@@ -11,7 +11,7 @@ namespace Horizon.Blog.Domain.Core
         /// <summary>
         /// 生成id
         /// </summary>
-        protected void GenerateId() => _Id=Guid.NewGuid().ToString("N");
+        protected void GenerateId() => _Id = GuidHelper.GeneraterByTime().ToString("N");
         public virtual string Id
         {
             get

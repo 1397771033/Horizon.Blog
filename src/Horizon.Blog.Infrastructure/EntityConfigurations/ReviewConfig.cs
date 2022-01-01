@@ -26,7 +26,7 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
                    info.Property(_ => _.CreationTime)
                    .HasColumnName("creation_time");
                });
-           
+
 
         }
     }

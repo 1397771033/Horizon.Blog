@@ -1,9 +1,4 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Domain.Service
 {
@@ -21,7 +16,7 @@ namespace Horizon.Blog.Domain.Service
         public int GetMaxSortNum()
         {
             var article = _articleRepository.GetBySortNum();
-            return article?.SortNum??default;
+            return article?.SortNum ?? default;
         }
     }
 }

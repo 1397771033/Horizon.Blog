@@ -1,11 +1,7 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggreate;
 using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
 using Horizon.Blog.Infrastructure.DatabaseContext;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Infrastructure.Repositories
 {
@@ -24,8 +20,8 @@ namespace Horizon.Blog.Infrastructure.Repositories
         {
             if (_context.Articles.Any())
             {
-                return asc 
-                    ?_context.Articles.OrderBy(_ => _.SortNum).FirstOrDefault()
+                return asc
+                    ? _context.Articles.OrderBy(_ => _.SortNum).FirstOrDefault()
                     : _context.Articles.OrderByDescending(_ => _.SortNum).FirstOrDefault();
             }
             return null;

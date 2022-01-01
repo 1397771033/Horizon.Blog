@@ -1,6 +1,6 @@
 namespace Horizon.Blog.Domain.Core
 {
-    public interface IRepository<TEntity> where TEntity :Entity, IAggregateRoot
+    public interface IRepository<TEntity> where TEntity : Entity, IAggregateRoot
     {
         /// <summary>
         /// 获取聚合
