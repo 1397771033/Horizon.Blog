@@ -1,21 +1,16 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggreate;
-using Horizon.Blog.Domain.Aggregates.ReviewAggregate;
-using Horizon.Blog.Domain.Aggregates.StarAggregate;
+using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Horizon.Blog.Domain.Core;
 using Horizon.Blog.Infrastructure.EntityConfigurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Horizon.Blog.Infrastructure.DatabaseContext
 {
-    public class BlogDbContext:DbContext, IUnitOfWork
+    public class BlogDbContext:DbContext
     {
         private readonly IMediator _mediator;
         public BlogDbContext(DbContextOptions<BlogDbContext> options,
@@ -38,11 +33,13 @@ namespace Horizon.Blog.Infrastructure.DatabaseContext
         public virtual DbSet<Article> Articles { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Star> Stars { get; set; }
+        public virtual DbSet<ArticleFunction> ArticleFunctions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ArticleConfig());
             modelBuilder.ApplyConfiguration(new ReviewConfig());
             modelBuilder.ApplyConfiguration(new StarConfig());
+            modelBuilder.ApplyConfiguration(new ArticleFunctionConfig());
         }
     }
 }

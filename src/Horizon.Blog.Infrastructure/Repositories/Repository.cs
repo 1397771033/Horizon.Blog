@@ -14,8 +14,6 @@ namespace Horizon.Blog.Infrastructure.Repositories
     {
         protected readonly BlogDbContext _context;
 
-        public IUnitOfWork UnitOfWork => _context;
-
         protected Repository(BlogDbContext context)
         {
             _context = context;

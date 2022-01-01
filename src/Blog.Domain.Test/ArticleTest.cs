@@ -8,7 +8,7 @@ namespace Blog.Domain.Test
     [TestClass]
     public class ArticleTest
     {
-        private Article GetArticleInstance() => new Article(_articleTitle, _articleContent, _creatorId);
+        private Article ArticleInstance {get=> new Article(_articleTitle, _articleContent, _creatorId); } 
 
         private readonly string _articleTitle="文章标题";
         private readonly string _articleContent="文章内容";
@@ -18,7 +18,7 @@ namespace Blog.Domain.Test
         [TestMethod("正常参数的构造函数")]
         public void Ctor_Success()
         {
-            var article = GetArticleInstance();
+            var article = ArticleInstance;
 
             Assert.IsNotNull(article.Id);
             Assert.IsNotNull(article.CreationInfo);
@@ -40,7 +40,7 @@ namespace Blog.Domain.Test
         [TestMethod("正常参数的修改文章")]
         public void Modify_Success()
         {
-            var article = GetArticleInstance();
+            var article = ArticleInstance;
 
             string articleTitle = "新文章标题";
             string articleContent = "新文章标题";

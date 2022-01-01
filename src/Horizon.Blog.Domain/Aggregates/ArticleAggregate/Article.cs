@@ -1,5 +1,6 @@
 using Horizon.Blog.Domain.Common;
 using Horizon.Blog.Domain.Core;
+using Horizon.Blog.Domain.Events.Articles;
 using Horizon.Blog.Service.Enums;
 using System;
 
@@ -49,6 +50,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
             SetToped(false);
             SetStatus(ArticleStatusEnum.Unpublished);
             SetModificationInfo(creatorId);
+            AddDomainEvent(new ArticleCreatedDomainEvent(Id));
         }
         public void ModifyArticle(string title,string content,string modifierId)
         {

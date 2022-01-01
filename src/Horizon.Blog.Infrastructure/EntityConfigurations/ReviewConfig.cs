@@ -1,11 +1,6 @@
-using Horizon.Blog.Domain.Aggregates.ReviewAggregate;
+using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.Blog.Infrastructure.EntityConfigurations
 {
@@ -16,8 +11,12 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
             builder.ToTable("review");
 
             builder.HasKey(_ => _.Id);
-            builder.Property(_ => _.ArticleId)
-                .HasColumnName("article_id");
+            builder.Property(_ => _.Id)
+               .HasColumnName("id")
+               .IsRequired()
+               .HasMaxLength(36);
+
+
             builder.Property(_ => _.Content)
                 .HasColumnName("content");
             builder.OwnsOne(_ => _.CreationInfo, info =>
@@ -27,10 +26,7 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
                    info.Property(_ => _.CreationTime)
                    .HasColumnName("creation_time");
                });
-            builder.Property(_ => _.Id)
-                .HasColumnName("id")
-                .IsRequired()
-                .HasMaxLength(36);
+           
 
         }
     }

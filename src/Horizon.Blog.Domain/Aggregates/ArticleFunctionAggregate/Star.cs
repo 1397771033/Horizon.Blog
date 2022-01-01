@@ -6,27 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horizon.Blog.Domain.Aggregates.StarAggregate
+namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
 {
-    public class Star : Entity, IAggregateRoot
+    public class Star : Entity
     {
         public UserCreationInfo CreationInfo { get; private set; }
-        public string ArticleId { get; private set; }
         private Star()
         {
             
         }
-        public Star(string articleId,string creatorId):this()
+        internal Star(string creatorId):this()
         {
             GenerateId();
-            BindArticleId(articleId);
             SetCreationInfo(creatorId);
-        }
-        private void BindArticleId(string articleId)
-        {
-            if (string.IsNullOrWhiteSpace(articleId))
-                throw new ArgumentNullException(nameof(articleId));
-            ArticleId = articleId;
         }
         private void SetCreationInfo(string creatorId)
         {

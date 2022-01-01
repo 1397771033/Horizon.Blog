@@ -6,22 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horizon.Blog.Domain.Aggregates.ReviewAggregate
+namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
 {
-    public class Review:Entity,IAggregateRoot
+    public class Review:Entity
     {
         public string Content { get;private set; }
         public UserCreationInfo CreationInfo { get;private set; }
-        public string ArticleId { get;private set; }
+
         private Review()
         {
 
         }
-        public Review(string content,string articleId,string creatorId):this()
+        internal Review(string content,string creatorId):this()
         {
             GenerateId();
             SetContent(content);
-            BindArticleId(articleId);
             SetCreationInfo(creatorId);
         }
         private void SetContent(string content)
@@ -30,15 +29,9 @@ namespace Horizon.Blog.Domain.Aggregates.ReviewAggregate
                 throw new ArgumentNullException(nameof(content));
             Content = content;
         }
-        public void ModifyContent(string content)
+        internal void ModifyContent(string content)
         {
             this.SetContent(content);
-        }
-        private void BindArticleId(string articleId)
-        {
-            if (string.IsNullOrWhiteSpace(articleId))
-                throw new ArgumentNullException(nameof(articleId));
-            ArticleId = articleId;
         }
         private void SetCreationInfo(string creatorId)
         {

@@ -139,7 +139,7 @@ namespace Horzion.Blog.Api.Extensions.ConfigureService
         public void ConfigureMediatR()
         {
             services.AddMediatR(typeof(Startup));
-            services.AddScoped<IMediator, Mediator>();
+            //services.AddScoped<IMediator, Mediator>();
         }
     }
 }
