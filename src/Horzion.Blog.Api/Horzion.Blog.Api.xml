@@ -59,5 +59,10 @@
             配置查询
             </summary>
         </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureRedis">
+            <summary>
+            配置redis
+            </summary>
+        </member>
     </members>
 </doc>

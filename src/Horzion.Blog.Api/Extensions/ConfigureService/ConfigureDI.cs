@@ -1,6 +1,7 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
 using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Horizon.Blog.Domain.Service;
+using Horizon.Blog.Infrastructure.Redis;
 using Horizon.Blog.Infrastructure.Repositories;
 using Horzion.Blog.Api.Application.CommandHandlers.ArticleHandlers;
 using MediatR;
@@ -51,6 +52,14 @@ namespace Horizon.Blog.Api.Extensions.ConfigureServices
         public void ConfigureQueries()
         {
 
+        }
+        /// <summary>
+        /// 配置redis
+        /// </summary>
+        public void ConfigureRedis()
+        {
+            services.AddScoped<IRedisContext, RedisContext>();
+            services.AddScoped<AbstructRedisContext, RedisContext>();
         }
     }
 }

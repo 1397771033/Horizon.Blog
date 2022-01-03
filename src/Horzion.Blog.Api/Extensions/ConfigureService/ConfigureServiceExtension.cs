@@ -27,6 +27,7 @@ namespace Horzion.Blog.Api.Extensions
             configureDI.ConfigureDomainEventHandler();
             configureDI.ConfigureQueries();
             configureDI.ConfigureDomainService();
+            configureDI.ConfigureRedis();
         }
     }
 }
