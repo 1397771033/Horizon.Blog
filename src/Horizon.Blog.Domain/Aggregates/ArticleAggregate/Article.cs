@@ -40,16 +40,16 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
         {
 
         }
-        public Article(string title, string content, string creatorId, int sortNum = 1) : this()
+        public Article(string title, string content, string creatorIp, int sortNum = 1) : this()
         {
             GenerateId();
             SetTitle(title);
             SetContent(content);
-            SetCreationInfo(creatorId);
+            SetCreationInfo(creatorIp);
             SetSortNum(sortNum);
             SetToped(false);
             SetStatus(ArticleStatusEnum.Unpublished);
-            SetModificationInfo(creatorId);
+            SetModificationInfo(creatorIp);
             AddDomainEvent(new ArticleCreatedDomainEvent(Id));
         }
         public void ModifyArticle(string title, string content, string modifierId)
@@ -71,11 +71,11 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleAggreate
                 throw new ArgumentNullException(nameof(content));
             Content = content;
         }
-        private void SetCreationInfo(string creatorId)
+        private void SetCreationInfo(string creatorIp)
         {
-            if (string.IsNullOrWhiteSpace(creatorId))
-                throw new ArgumentNullException(nameof(creatorId));
-            CreationInfo = new AdminCreationInfo(creatorId, DateTime.Now);
+            if (string.IsNullOrWhiteSpace(creatorIp))
+                throw new ArgumentNullException(nameof(creatorIp));
+            CreationInfo = new AdminCreationInfo(creatorIp, DateTime.Now);
         }
         private void SetSortNum(int sortNum)
         {

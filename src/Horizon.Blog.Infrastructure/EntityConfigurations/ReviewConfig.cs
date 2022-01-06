@@ -21,8 +21,8 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
                 .HasColumnName("content");
             builder.OwnsOne(_ => _.CreationInfo, info =>
                {
-                   info.Property(_ => _.CreatorId)
-                   .HasColumnName("creator_id");
+                   info.Property(_ => _.CreatorIp)
+                   .HasColumnName("creator_ip");
                    info.Property(_ => _.CreationTime)
                    .HasColumnName("creation_time");
                });

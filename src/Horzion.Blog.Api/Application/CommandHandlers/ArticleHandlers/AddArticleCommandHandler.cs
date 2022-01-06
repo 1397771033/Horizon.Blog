@@ -23,7 +23,7 @@ namespace Horzion.Blog.Api.Application.CommandHandlers.ArticleHandlers
         public async Task<bool> Handle(AddArticleCommand request, CancellationToken cancellationToken)
         {
             int sortNum = _articleService.GetMaxSortNum();
-            Article article = new Article(request.Title, request.Content, request.CreatorId, sortNum + 1);
+            Article article = new Article(request.Title, request.Content, request.CreatorIp, sortNum + 1);
             _articleRepository.Add(article);
             return await SaveEntitiesAsync();
         }

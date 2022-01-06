@@ -6,12 +6,12 @@ namespace Horzion.Blog.Api.Application.CommandHandlers.ArticleHandlers
     {
         public string Title { get; set; }
         public string Content { get; set; }
-        public string CreatorId { get; set; }
-        public AddArticleCommand(string title, string content, string creatorId)
+        public string CreatorIp { get; set; }
+        public AddArticleCommand(string title, string content, string creatorIp)
         {
             Title = title;
             Content = content;
-            CreatorId = creatorId;
+            CreatorIp = creatorIp;
         }
     }
 }

@@ -6,17 +6,17 @@ namespace Horizon.Blog.Domain.Common
 {
     public class UserCreationInfo : ValueObject
     {
-        public string CreatorId { get; private set; }
+        public string CreatorIp { get; private set; }
         public DateTime CreationTime { get; private set; }
-        public UserCreationInfo(string creatorId, DateTime creationTime)
+        public UserCreationInfo(string creatorIp, DateTime creationTime)
         {
-            CreatorId = creatorId;
+            CreatorIp = creatorIp;
             CreationTime = creationTime;
         }
 
         protected override IEnumerable<object> GetAtomicValues()
         {
-            yield return CreatorId;
+            yield return CreatorIp;
             yield return CreationTime;
         }
     }

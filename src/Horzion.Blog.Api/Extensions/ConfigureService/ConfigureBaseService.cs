@@ -1,3 +1,4 @@
+using CSRedis;
 using Horizon.Blog.Infrastructure.DatabaseContext;
 using Horizon.Blog.Service.Exceptions;
 using MediatR;
@@ -135,6 +136,12 @@ namespace Horzion.Blog.Api.Extensions.ConfigureService
         public void ConfigureMediatR()
         {
             services.AddMediatR(typeof(Startup));
+        }
+        public void ConfigureRedis()
+        {
+            var redisConnection = configuration["ConnectionStrings:Redis"];
+            var csredis = new CSRedisClient(redisConnection);
+            RedisHelper.Initialization(csredis);
         }
     }
 }

@@ -20,8 +20,8 @@ namespace Horizon.Blog.Infrastructure.EntityConfigurations
                {
                    info.Property(_ => _.CreationTime)
                    .HasColumnName("creation_time");
-                   info.Property(_ => _.CreatorId)
-                   .HasColumnName("creator_id");
+                   info.Property(_ => _.CreatorIp)
+                   .HasColumnName("creator_ip");
                });
         }
     }

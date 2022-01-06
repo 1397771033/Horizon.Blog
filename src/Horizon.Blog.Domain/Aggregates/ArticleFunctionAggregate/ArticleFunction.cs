@@ -7,7 +7,7 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
 {
     public class ArticleFunction : Entity, IAggregateRoot
     {
-        public string ArticleId { get; set; }
+        public string ArticleId { get;private set; }
 
         private readonly List<Review> _reviews;
         /// <summary>
@@ -40,9 +40,9 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         }
 
         #region Review
-        public void Review(string content, string creatorId)
+        public void Review(string content, string creatorIp)
         {
-            Review review = new Review(content, creatorId);
+            Review review = new Review(content, creatorIp);
             _reviews.Add(review);
         }
         public void DeleteReview(string reviewId)
@@ -53,15 +53,15 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         }
         #endregion
         #region Star
-        public void Star(string creatorId)
+        public void Star(string creatorIp)
         {
-            if (_stars.Any(_ => _.CreationInfo.CreatorId == creatorId)) return;
-            Star star = new Star(creatorId);
+            if (_stars.Any(_ => _.CreationInfo.CreatorIp == creatorIp)) return;
+            Star star = new Star(creatorIp);
             _stars.Add(star);
         }
-        public void CancelStar(string creatorId)
+        public void CancelStar(string creatorIp)
         {
-            Star star = _stars.FirstOrDefault(_ => _.CreationInfo.CreatorId == creatorId);
+            Star star = _stars.FirstOrDefault(_ => _.CreationInfo.CreatorIp == creatorIp);
             if (star == null) return;
             _stars.Remove(star);
         }

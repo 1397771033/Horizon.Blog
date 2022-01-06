@@ -13,11 +13,11 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         {
 
         }
-        internal Review(string content, string creatorId) : this()
+        internal Review(string content, string creatorIp) : this()
         {
             GenerateId();
             SetContent(content);
-            SetCreationInfo(creatorId);
+            SetCreationInfo(creatorIp);
         }
         private void SetContent(string content)
         {
@@ -29,9 +29,9 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         {
             this.SetContent(content);
         }
-        private void SetCreationInfo(string creatorId)
+        private void SetCreationInfo(string creatorIp)
         {
-            CreationInfo = new UserCreationInfo(creatorId, DateTime.Now);
+            CreationInfo = new UserCreationInfo(creatorIp, DateTime.Now);
         }
     }
 }

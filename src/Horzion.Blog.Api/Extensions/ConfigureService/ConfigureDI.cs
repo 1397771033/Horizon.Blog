@@ -1,12 +1,11 @@
 using Horizon.Blog.Domain.Aggregates.ArticleAggregate;
 using Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate;
 using Horizon.Blog.Domain.Service;
-using Horizon.Blog.Infrastructure.Redis;
 using Horizon.Blog.Infrastructure.Repositories;
 using Horzion.Blog.Api.Application.CommandHandlers.ArticleHandlers;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-
+using System;
 namespace Horizon.Blog.Api.Extensions.ConfigureServices
 {
     public class ConfigureDI
@@ -14,7 +13,7 @@ namespace Horizon.Blog.Api.Extensions.ConfigureServices
         private readonly IServiceCollection services;
         public ConfigureDI(IServiceCollection services)
         {
-            this.services = services;
+            this.services = services??throw new ArgumentNullException(nameof(services));
         }
         /// <summary>
         /// 配置命令处理器
@@ -52,14 +51,6 @@ namespace Horizon.Blog.Api.Extensions.ConfigureServices
         public void ConfigureQueries()
         {
 
-        }
-        /// <summary>
-        /// 配置redis
-        /// </summary>
-        public void ConfigureRedis()
-        {
-            services.AddScoped<IRedisContext, RedisContext>();
-            services.AddScoped<AbstructRedisContext, RedisContext>();
         }
     }
 }

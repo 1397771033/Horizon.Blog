@@ -11,14 +11,14 @@ namespace Horizon.Blog.Domain.Aggregates.ArticleFunctionAggregate
         {
 
         }
-        internal Star(string creatorId) : this()
+        internal Star(string creatorIp) : this()
         {
             GenerateId();
-            SetCreationInfo(creatorId);
+            SetCreationInfo(creatorIp);
         }
-        private void SetCreationInfo(string creatorId)
+        private void SetCreationInfo(string creatorIp)
         {
-            CreationInfo = new UserCreationInfo(creatorId, DateTime.Now);
+            CreationInfo = new UserCreationInfo(creatorIp, DateTime.Now);
         }
     }
 }

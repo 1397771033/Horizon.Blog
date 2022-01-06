@@ -19,6 +19,7 @@ namespace Horzion.Blog.Api.Extensions
             configureBaseService.ConfigExceptionResult();
             configureBaseService.ConfigureMediatR();
             configureBaseService.ConfigureDataAccess();
+            configureBaseService.ConfigureRedis();
 
 
 
@@ -27,7 +28,6 @@ namespace Horzion.Blog.Api.Extensions
             configureDI.ConfigureDomainEventHandler();
             configureDI.ConfigureQueries();
             configureDI.ConfigureDomainService();
-            configureDI.ConfigureRedis();
         }
     }
 }
