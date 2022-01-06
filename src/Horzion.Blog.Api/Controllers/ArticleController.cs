@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Horzion.Blog.Api.Controllers
 {
-    [Route("v1/")]
+    [Route("v1")]
     [ApiController]
     public class ArticleController : ControllerBase
     {

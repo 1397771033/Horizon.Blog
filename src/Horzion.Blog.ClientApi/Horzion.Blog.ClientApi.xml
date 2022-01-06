@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Horzion.Blog.ClientApi</name>
+    </assembly>
+    <members>
+        <member name="M:Horzion.Blog.ClientApi.Controllers.ArticleController.Star(System.String)">
+            <summary>
+            星
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigExceptionResult">
+            <summary>
+            异常处理Response
+            </summary>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigureCors">
+            <summary>
+            跨域设置
+            </summary>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigureDataAccess">
+            <summary>
+            数据库查询
+            </summary>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigureSwagger">
+            <summary>
+            swagger
+            </summary>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigureAuthentication">
+            <summary>
+            认证
+            </summary>
+        </member>
+        <member name="M:Horzion.Blog.ClientApi.Extensions.ConfigureService.ConfigureBaseService.ConfigureMediatR">
+            <summary>
+            配置mediatr
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureCommandHandler">
+            <summary>
+            配置命令处理器
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureDomainEventHandler">
+            <summary>
+            配置领域事件
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureDomainService">
+            <summary>
+            配置领域服务
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureRepository">
+            <summary>
+            配置仓储
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureQueries">
+            <summary>
+            配置查询
+            </summary>
+        </member>
+        <member name="M:Horizon.Blog.Api.Extensions.ConfigureServices.ConfigureDI.ConfigureAppService">
+            <summary>
+            配置应用服务
+            </summary>
+        </member>
+    </members>
+</doc>

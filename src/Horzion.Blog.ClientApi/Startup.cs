@@ -1,12 +1,12 @@
 using Horizon.Blog.Api.Extensions;
-using Horzion.Blog.Api.Extensions;
+using Horzion.Blog.ClientApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Horzion.Blog.Api
+namespace Horzion.Blog.ClientApi
 {
     public class Startup
     {
@@ -30,15 +30,13 @@ namespace Horzion.Blog.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Horzion.Blog.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Horzion.Blog.ClientApi v1"));
             }
 
-            //app.UseHttpsRedirection();
-            app.UseMiddleware<ExceptionHandlerMiddleware>();
             app.UseRouting();
-            app.UseCors("default");
+            app.UseMiddleware<ExceptionHandlerMiddleware>();
             app.UseAuthorization();
-
+            app.UseCors("default");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
